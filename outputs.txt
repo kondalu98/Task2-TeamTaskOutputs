@@ -1,0 +1,119 @@
+=====================code======================
+package JAVA;
+
+import java.util.*;
+
+public class day4 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        ArrayList<String>al=new ArrayList<>();
+        ArrayList<Object>a=new ArrayList<>();
+        ArrayList<HashMap<String,String>>hs=new ArrayList<>();
+        al.add("team1");
+        al.add("team2");
+        al.add("team3");
+        al.add("team4");
+        al.add("team5");
+        match m1=new match(al.get(0));
+        match m2=new match(al.get(1));
+        match m3=new match(al.get(2));
+        match m4=new match(al.get(3));
+        match m5=new match(al.get(4));
+        a.add(m1);
+        a.add(m2);
+        a.add(m3);
+        a.add(m4);
+        a.add(m5);
+        int len=a.size();
+            new match(a,len);
+    }
+}
+class match{
+    String str;
+
+match(String str)
+{
+    this.str=str;
+}
+public  String  toString()
+    {
+        return str;
+    }
+match(ArrayList<Object> ab,int len){
+    for(int i=0;i<len-1;i++){
+        for(int j=0;j<len/2;j++){
+            int t1=(i+j)%(len-1);
+            int t2=(len-1-j+i)%(len-1);
+            if(j==0){
+                t2=len-1;
+            }
+            System.out.println(ab.get(t1)+"\tvs\t"+ab.get(t2));
+        }
+    }
+
+}
+}
+
+
+=================output=============
+
+team1   vs      team5
+team2   vs      team4
+team2   vs      team5
+team3   vs      team1
+team3   vs      team5
+team4   vs      team2
+team4   vs      team5
+team1   vs      team3
+
+
+
+
+
+
+=========================code2================
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class day10 {
+
+    public static void main(String[] args) {
+        HashMap<Character,Integer> hs=new HashMap<>();
+        int c=0;
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        String[] str=s.split(" ");
+        for(String ss:str)
+        {
+           
+            for (int i = 0; i < ss.length(); i++)
+            {
+                char ch = ss.charAt(i);
+                c=0;
+                for (String sss : str)
+                {
+                    //System.out.println(sss);
+                  
+                    for (int j = 0; j < sss.length(); j++)
+                    {
+                        char chh = sss.charAt(j);
+                    
+                        if (ch == chh)
+                        {
+                            c++;
+                        }
+                    }
+                }
+               hs.put(ch,c);
+            }
+        }
+        System.out.println(hs);
+    }
+}
+
+=================output===============
+
+
+hii hello every one
+{r=1, e=4, v=1, h=2, i=2, y=1, l=2, n=1, o=2}
